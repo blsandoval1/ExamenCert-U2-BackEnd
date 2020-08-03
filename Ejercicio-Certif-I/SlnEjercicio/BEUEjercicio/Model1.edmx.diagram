@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6a7dabbc0e8c48caab2546e49b25babb" Name="Diagram1">
+      <Diagram DiagramId="6a7dabbc0e8c48caab2546e49b25babb" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="DBModel.Alumno" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Area" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Calificacion" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
@@ -15,6 +15,7 @@
         <AssociationConnector Association="DBModel.FK_Calificacion_Matricula" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Matricula_Materia" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DBModel.Maquinaria" Width="1.5" PointX="10.25" PointY="3.125" />
+        <EntityTypeShape EntityType="DBModel.Beca" Width="2.125" PointX="7.375" PointY="4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

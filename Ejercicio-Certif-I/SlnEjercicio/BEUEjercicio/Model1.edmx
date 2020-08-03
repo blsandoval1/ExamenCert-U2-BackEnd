@@ -25,6 +25,17 @@
           <Property Name="nombre" Type="varchar" MaxLength="50" />
           <Property Name="coordinador" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Beca">
+          <Key>
+            <PropertyRef Name="idbeca" />
+          </Key>
+          <Property Name="idbeca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="solicitante" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_beca" Type="varchar" MaxLength="50" />
+          <Property Name="semestre" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_pedido" Type="date" />
+          <Property Name="promedio_general" Type="int" />
+        </EntityType>
         <EntityType Name="Calificacion">
           <Key>
             <PropertyRef Name="idcalificacion" />
@@ -119,6 +130,7 @@
         <EntityContainer Name="DBModelStoreContainer">
           <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Beca" EntityType="Self.Beca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Calificacion" EntityType="Self.Calificacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Maquinaria" EntityType="Self.Maquinaria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
@@ -275,6 +287,7 @@
             <End Role="Matricula" EntitySet="Matriculas" />
           </AssociationSet>
           <EntitySet Name="Maquinarias" EntityType="DBModel.Maquinaria" />
+          <EntitySet Name="Becas" EntityType="DBModel.Beca" />
         </EntityContainer>
         <EntityType Name="Maquinaria">
           <Key>
@@ -286,6 +299,17 @@
           <Property Name="fecha_adquisicion" Type="DateTime" Precision="0" />
           <Property Name="precio" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="porcentaje_depreciacion" Type="Decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="Beca">
+          <Key>
+            <PropertyRef Name="idbeca" />
+          </Key>
+          <Property Name="idbeca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="solicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_beca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="semestre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_pedido" Type="DateTime" Precision="0" />
+          <Property Name="promedio_general" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -359,6 +383,18 @@
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
                 <ScalarProperty Name="idmaquinaria" ColumnName="idmaquinaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Becas">
+            <EntityTypeMapping TypeName="DBModel.Beca">
+              <MappingFragment StoreEntitySet="Beca">
+                <ScalarProperty Name="promedio_general" ColumnName="promedio_general" />
+                <ScalarProperty Name="fecha_pedido" ColumnName="fecha_pedido" />
+                <ScalarProperty Name="semestre" ColumnName="semestre" />
+                <ScalarProperty Name="tipo_beca" ColumnName="tipo_beca" />
+                <ScalarProperty Name="solicitante" ColumnName="solicitante" />
+                <ScalarProperty Name="idbeca" ColumnName="idbeca" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
