@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BEUEjercicio.Matricula>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <thead class="bg-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.costo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno.nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Materia.nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.costo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.estado)
+    </td>    
+        @if (item.tipo.Equals("P"))
+        {
+            <td>@Html.Label("Primera", htmlAttributes: new { @class = "h5 label label-success" })</td>
+        }
+        else if (item.tipo.Equals("S"))
+        {
+            <td>@Html.Label("Segunda", htmlAttributes: new { @class = "h5 label label-warning" })</td>
+        }
+        else {
+            <td>@Html.Label("Tercera", htmlAttributes: new { @class = "h5 label label-danger" })</td>
+        }
+        <td>
+            @item.Alumno.ToString()
+        </td>
+        <td>
+            @item.Materia.ToString()
+        </td>
+        <td>
+            <div class="btn-group">
+                @Html.ActionLink("  ", "Edit", new { id = item.idmatricula }, htmlAttributes: new { @class = "btn btn-sm btn-warning glyphicon glyphicon-pencil", @title="Editar" })
+                @Html.ActionLink("  ", "Details", new { id = item.idmatricula }, htmlAttributes: new { @class = "btn btn-sm btn-primary glyphicon glyphicon-search", @title = "Ver" }) 
+                @Html.ActionLink("  ", "Delete", new { id = item.idmatricula }, htmlAttributes: new { @class = "btn btn-sm btn-danger glyphicon glyphicon-trash", @title = "Borrar" })
+            </div>
+        </td>
+    </tr>
+}
+
+</table>

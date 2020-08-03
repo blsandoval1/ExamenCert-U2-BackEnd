@@ -1,0 +1,58 @@
+﻿@model BEUEjercicio.Materia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Materia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nrc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nrc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creditos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creditos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area.coordinador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area.coordinador)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idmateria }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
